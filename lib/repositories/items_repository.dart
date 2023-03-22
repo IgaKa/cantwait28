@@ -7,7 +7,7 @@ class ItemsRepository {
   Stream<List<ItemModel>> getItemsStream() {
     return FirebaseFirestore.instance
         .collection('items')
-        .orderBy('release_date')
+        .orderBy('relase_date')
         .snapshots()
         .map(
       (querySnapshot) {
@@ -17,7 +17,7 @@ class ItemsRepository {
               id: doc.id,
               title: doc['title'],
               imageURL: doc['image_url'],
-              releaseDate: (doc['release_date'] as Timestamp).toDate(),
+              relaseDate: (doc['relase_date'] as Timestamp).toDate(),
             );
           },
         ).toList();
@@ -36,20 +36,20 @@ class ItemsRepository {
       id: doc.id,
       title: doc['title'],
       imageURL: doc['image_url'],
-      releaseDate: (doc['release_date'] as Timestamp).toDate(),
+      relaseDate: (doc['relase_date'] as Timestamp).toDate(),
     );
   }
 
   Future<void> add(
     String title,
     String imageURL,
-    DateTime releaseDate,
+    DateTime relaseDate,
   ) async {
     await FirebaseFirestore.instance.collection('items').add(
       {
         'title': title,
         'image_url': imageURL,
-        'release_date': releaseDate,
+        'relase_date': relaseDate,
       },
     );
   }
