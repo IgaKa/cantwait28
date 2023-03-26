@@ -1,7 +1,8 @@
-import 'package:cantwait28/features/home/pages/home_page.dart';
 import 'package:cantwait28/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'features/auth/pages/auth_gate.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const HomePage(),
+      home: const AuthGate(),
     );
   }
 }
